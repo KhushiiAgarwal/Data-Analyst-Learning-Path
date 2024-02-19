@@ -9,6 +9,7 @@ OR
       
 1. Open Cloud Shell
 2. Click Authorize
+3. Copy and paste the command. Press enter
 ```
 bq mk bq_dataset
 ```
