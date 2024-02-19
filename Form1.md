@@ -9,7 +9,9 @@ OR
       
 1. Open Cloud Shell
 2. Click Authorize
-3. ``` bq mk bq_dataset```
+```
+bq mk bq_dataset
+```
 4. Dataset will be created
 
 ## Task-2: Create a forecasting BigQuery machine learning model
