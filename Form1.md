@@ -4,7 +4,9 @@ If you find my repository helpful, please star⭐ it 🌟.
 1. In the Explorer pane of the BigQuery Console, click on the three dots next to your Project ID and then select Create dataset.
 2. In the Create dataset dialog, set the Dataset ID to `bq_dataset` and leave the other options at their default values.
 3. Click __Create dataset__.
-   OR
+-
+OR
+-      
 1. Open Cloud Shell
 2. Click Authorize
 3. ``` bq mk bq_dataset```
