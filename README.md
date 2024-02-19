@@ -1,6 +1,6 @@
 # Create-ML-Models-with-BigQuery-ML-Challenge-Lab
-Google CloudSkill Data Analyst Path 
  ![](https://img.shields.io/circleci/project/github/badges/shields/master)  ![version](https://img.shields.io/badge/version-1.2-blue) 
+Google Cloud Skill Boost : Data Analyst Path 
 
 
 ## Steps to identify task shuffler task id:
