@@ -1,3 +1,8 @@
+For best understanding watch : (Youtube)[https://www.youtube.com/watch?v=FsesF7Gh8tk]
+
+Create 2 new views.
+=========================================================================================================================================================
+
 FILE NAME :- order_items_challenge
 
 
@@ -96,7 +101,11 @@ view: user_details {
 
 
 =========================================================================================================================================================
+Now delete everything in training_ecommerce.model and paste below code
+On line 22 enter the value given for filter 1 (NUMERICAL ONLY, ommit the $ sign) and paste it as value 1
+On line 34 enter the value given for filter  3 (NUMERICAL ONLY, ommit the $ sign) and paste it as value 2
 
+=========================================================================================================================================================
 
 
 
@@ -213,6 +222,11 @@ explore: events {
 
 
 
+==========================================================================================================================================================================
+First check all first 4 tasks are completed and earn 80/100 points
+For last task again delete the entire code of training_ecommerce.model and paste the below code
+Check  line 10, and go to step 4 to enter appropriate hours. Save and commit. Deploy
+Wait for 5 mins to check progress
 ==========================================================================================================================================================================
 
 
