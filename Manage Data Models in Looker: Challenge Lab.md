@@ -1,3 +1,4 @@
+ ###### If you find my repository helpful, please star⭐ it 🌟.
 ### Task 1. Create LookML objects
  
 Go to order_items.view and add the following code Line No 128
