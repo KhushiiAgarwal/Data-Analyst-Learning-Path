@@ -2,7 +2,7 @@
 # Analyze and Visualize Looker Data: Challenge lab
 
 ## Task - 1 : Create Looks :-
-#### Look - 1 : Most Heliports by State :-
+### Look - 1 : Most Heliports by State :-
 Click Airports Explore.
 - Click City and State Dimensions. Click Count Measure. Hover over the Facility Type, click the Filter By Field button (three lines), and set the Airports Facility type to is equal to HELIPORT.
 
@@ -10,7 +10,7 @@ In the data section, make the sure Airports Count column is in descending order.
 
 Save the visualization as a Look.
 
-#### Look - 2 : Facility Type Breakdown :-
+### Look - 2 : Facility Type Breakdown :-
 
 Click Airports Explore.
 - Click State Dimensions. Click Count Measure. Hover over the Facility Type, click the Pivot button. Set the row limit to 10.
@@ -18,7 +18,7 @@ Click Airports Explore.
 In the data section, make the sure Airports Facility Type column is in descending order. Clicking the column reorders it. For visualization, make sure the type is set to Table.
 
 Save the visualization as a Look.
-#### Look - 3 : Percentage Cancelled :-
+### Look - 3 : Percentage Cancelled :-
 
 Click Flights Explore.
 - Click Aircraft Origin > City and Aircraft Origin > State Dimensions. - Under Flights Details, click Cancelled Count Measure.
@@ -34,7 +34,7 @@ In the data section, make the sure Percent Cancelled column is in descending ord
 
 Save the visualization as a Look.
 
-#### Task - 2 : Merge Results :-
+## Task - 2 : Merge Results :-
 
 
 Click Flights Explore.
@@ -51,7 +51,7 @@ Click Save. Confirm the merge, then click Run. Click visualization and choose a 
 Click the gear icon on the top right and then click Save to Dashboard.
 
 
-#### Task - 3 : Save Looks to a Dashboard :-
+## Task - 3 : Save Looks to a Dashboard :-
 
 Click the Looker Home page in the top left corner. On the left, click Developer's Folder and you will see the Looks you created.
 
