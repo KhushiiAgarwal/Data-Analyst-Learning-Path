@@ -9,3 +9,12 @@ Click Airports Explore.
 In the data section, make the sure Airports Count column is in descending order. Clicking the column reorders it. For visualization, make sure the type is set to Table.
 
 Save the visualization as a Look.
+
+##### Look - 2 : Facility Type Breakdown :-
+
+Click Airports Explore.
+- Click State Dimensions. Click Count Measure. Hover over the Facility Type, click the Pivot button. Set the row limit to 10.
+
+In the data section, make the sure Airports Facility Type column is in descending order. Clicking the column reorders it. For visualization, make sure the type is set to Table.
+
+Save the visualization as a Look.
