@@ -1,7 +1,9 @@
  ##### If you find my repository helpful, please star⭐ it 🌟.
 For best understanding watch : [Youtube](https://www.youtube.com/watch?v=FsesF7Gh8tk)
 
+### Task 1-3
 Create 2 new views.
+
 =========================================================================================================================================================
 
 FILE NAME :- order_items_challenge
@@ -58,8 +60,8 @@ view: order_items_challenge {
 FILE NAME :- user_details
 
 
-# If necessary, uncomment the line below to include explore_source.
-# include: "training_ecommerce.model.lkml"
+#If necessary, uncomment the line below to include explore_source.
+#include: "training_ecommerce.model.lkml"
 
 view: user_details {
   derived_table: {
@@ -228,6 +230,7 @@ First check all first 4 tasks are completed and earn 80/100 points
 For last task again delete the entire code of training_ecommerce.model and paste the below code
 Check  line 10, and go to step 4 to enter appropriate hours. Save and commit. Deploy
 Wait for 5 mins to check progress
+
 ==========================================================================================================================================================================
 
 
@@ -241,7 +244,7 @@ FILE NAME :-  training_ecommerce
 
 connection: "bigquery_public_data_looker"
 
-# include all the views
+#include all the views
 include: "/views/*.view"
 include: "/z_tests/*.lkml"
 include: "/**/*.dashboard"
