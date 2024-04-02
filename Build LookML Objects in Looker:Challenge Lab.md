@@ -104,9 +104,9 @@ view: user_details {
 
 
 =========================================================================================================================================================
-Now delete everything in training_ecommerce.model and paste below code
-On line 22 enter the value given for filter 1 (NUMERICAL ONLY, ommit the $ sign) and paste it as value 1
-On line 34 enter the value given for filter  3 (NUMERICAL ONLY, ommit the $ sign) and paste it as value 2
+- Now delete everything in training_ecommerce.model and paste below code
+- On line 22 enter the value given for filter 1 (NUMERICAL ONLY, ommit the $ sign) and paste it as value 1
+- On line 34 enter the value given for filter  3 (NUMERICAL ONLY, ommit the $ sign) and paste it as value 2
 
 =========================================================================================================================================================
 
@@ -119,13 +119,13 @@ FILE NAME :- training_ecommerce
 
 connection: "bigquery_public_data_looker"
 
-# include all the views
+#include all the views
 include: "/views/*.view"
 include: "/z_tests/*.lkml"
 include: "/**/*.dashboard"
 
 datagroup: training_ecommerce_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  #sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
@@ -226,10 +226,10 @@ explore: events {
 
 
 ==========================================================================================================================================================================
-First check all first 4 tasks are completed and earn 80/100 points
-For last task again delete the entire code of training_ecommerce.model and paste the below code
-Check  line 10, and go to step 4 to enter appropriate hours. Save and commit. Deploy
-Wait for 5 mins to check progress
+- First check all first 4 tasks are completed and earn 80/100 points
+- For last task again delete the entire code of training_ecommerce.model and paste the below code
+- Check  line 10, and go to step 4 to enter appropriate hours. Save and commit. Deploy
+- Wait for 5 mins to check progress
 
 ==========================================================================================================================================================================
 
