@@ -1,0 +1,129 @@
+# Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab 
+# https://www.qwiklabs.com/focuses/11044?parent=catalog
+
+# Task 1: Run a simple Dataflow job
+    1.1 Create bigquery dataset
+        - Navigation menu > BigQuery > Click your project >
+        - Click CREATE DATASET (Dataset ID: lab, leave all default) > Create dataset
+        - *in cloud shell*
+            - run: gsutil cp gs://cloud-training/gsp323/lab.csv .
+            - run: gsutil cp gs://cloud-training/gsp323/lab.schema .
+            - run: cat lab.schema # copy the value within [] under "BigQuery Schema":
+        - Back to BigQuery page, click lab dataset, click CREATE TABLE
+        - *in create table dialog*
+            - Create table from: Google Cloud Storage
+            - Select file from GCS bucket: gs://cloud-training/gsp323/lab.csv
+            - Table name: customers
+            - Enable edit as text
+                - Paste output from previous cat lab.schema
+    1.2 Create bucket
+        - Navigation Menu > Storage > CREATE BUCKET > use your project id as bucket name > Create
+    1.3 Create dataflow job
+        - Navigation Menu > Dataflow > CREATE JOB FROM TEMPLATE
+        - *in create job from template section*
+            - Job name: give an arbitrary job name
+            - Dataflow template: Process Data in Bulk (batch) -> Text Files on Cloud Storage to BigQuery
+            - Required parameters:
+                    Field 	                        Value
+                - JavaScript UDF path           gs://cloud-training/gsp323/lab.js
+                - JSON path                     gs://cloud-training/gsp323/lab.schema
+                - JavaScript UDF name 	        transform
+                - BigQuery output table         YOUR_PROJECT:lab.customers
+                - Cloud Storage input path 	    gs://cloud-training/gsp323/lab.csv
+                - Temporary BigQuery directory 	gs://YOUR_PROJECT/bigquery_temp
+                - Temporary location 	        gs://YOUR_PROJECT/temp
+        - RUN JOB
+          (Continue to the Task 2 while waiting the Run Job done)
+
+# Task 2: Run a simple Dataproc job
+    2.1 Create Dataproc Cluster
+        - Navigation Menu > Dataproc > Cluster > Create Cluster 
+        - *in create cluster section*
+            - region: us-central-1
+            - Create
+        - Continue to Task 3 while waiting the Cluster creation completed
+        - Click your cluster name > VM INSTANCES > Click SSH
+            - run: hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
+            - Close SSH window
+        - SUBMIT JOB
+        - *in submit a job section*
+                Field 	                Value
+            - Region 	            us-central1
+            - Job type 	            Spark
+            - Main class or jar 	org.apache.spark.examples.SparkPageRank
+            - Jar files 	        file:///usr/lib/spark/examples/jars/spark-examples.jar
+            - Arguments 	        /data.txt
+            
+# Task 3: Run a simple Dataprep job
+    3.1 Import csv to dataprep
+        - Navigation menu > Dataprep > Import Data > Choose GCS
+        - *in import data section*
+            - Click pencil icon under Choose a file or folder
+            - Copy: gs://cloud-training/gsp323/runs.csv
+            - Click Go
+            - See imported runs.csv in right pane, click Import & Wrangle 
+    3.2 Transform data
+        - Search column10 column
+        - See detail page > click FAILURE > Click Delete rows with in suggestion menu > Add
+        - Search column9 column
+        - Click dropdown menu > Filter rows > On column Values > Contains...
+        - *in filter rows section*
+            - Column: column9
+            - Pattern to match: /(^0$|^0\.0$)/
+            - Action: Delete matching rows
+            - Click Add
+        - For rename column > click column one by one > Rename
+                before      after
+                column2     runid
+                column3     userid
+                column4     labid
+                column5     lab_title
+                column6     start
+                column7     end
+                column8     time
+                column9     score
+                column10    state
+        - Confirm the recipe (total 11 steps -> 2 delete, 9 rename)
+        - Run Job
+
+# Task 4: AI
+    - Navigation menu> APIs & Services > Credentials
+        - Click CREATE CREDENTIALS > Choose API > Copy your API Key
+        - Click RESTRICT KEY > SAVE > wait 5 min
+        - Open cloud shell
+    
+    4.1 Use Google Cloud Speech API to analyze the audio file
+        - *in cloud shell*
+            - *note*: FOLLOW THIS LAB -> https://www.qwiklabs.com/focuses/588?parent=catalog
+            - export API_KEY=<YOUR-API-KEY>
+            - nano request.json
+            - copy and save: 
+                {
+                  "config": {
+                      "encoding":"FLAC",
+                      "languageCode": "en-US"
+                  },
+                  "audio": {
+                      "uri":"gs://cloud-training/gsp323/task4.flac"
+                  }
+                }
+            - curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
+            - gsutil cp result.json gs://<your_project_id>-marking/task4-gcs.result
+
+    -- Alternate: --
+
+    gcloud iam service-accounts create my-natlang-sa \
+      --display-name "my natural language service account"
+
+    gcloud iam service-accounts keys create ~/key.json \
+      --iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+
+    export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
+    gcloud auth activate-service-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+    gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > result.json
+    gcloud auth login (Copy the token from the link provided)
+    gsutil cp result.json gs://$GOOGLE_CLOUD_PROJECT-marking/task4-cnl.result
+
+
+
+    
