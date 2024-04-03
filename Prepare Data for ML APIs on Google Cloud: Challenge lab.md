@@ -1,10 +1,6 @@
-# Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab
+# Prepare Data for ML APIs on Google Cloud: Challenge Lab
 
-> Launch the lab [here](https://google.qwiklabs.com/focuses/11044?parent=catalog)
 
-## Your challenge
-
-As a junior data engineer in Jooli Inc. and recently trained with Google Cloud and a number of data services you have been asked to demonstrate your newly learned skills. The team has asked you to complete the following tasks.
 
 ### Task 1: Run a simple Dataflow job
 
@@ -27,16 +23,26 @@ cat lab.schema
 ```
 
 * Now, create a table inside the `lab` dataset and configure it as follows:
-
-![](https://github.com/DSC-IIIT-Kalyani/qwiklabs_challenges/raw/master/screenshots/table_1.png)
+  [
+    {"type":"STRING","name":"guid"},
+    {"type":"BOOLEAN","name":"isActive"},
+    {"type":"STRING","name":"firstname"},
+    {"type":"STRING","name":"surname"},
+    {"type":"STRING","name":"company"},
+    {"type":"STRING","name":"email"},
+    {"type":"STRING","name":"phone"},
+    {"type":"STRING","name":"address"},
+    {"type":"STRING","name":"about"},
+    {"type":"TIMESTAMP","name":"registered"},
+    {"type":"FLOAT","name":"latitude"},
+    {"type":"FLOAT","name":"longitude"}
+]
 
 * Click on **Create table**
 
 * Go to **Dataflow** > Jobs > Create Job from Template
 
-![](https://github.com/DSC-IIIT-Kalyani/qwiklabs_challenges/raw/master/screenshots/job_1.png)
 
-![](https://github.com/DSC-IIIT-Kalyani/qwiklabs_challenges/raw/master/screenshots/job_2.png)
 
 * Run the Job.
 
@@ -44,7 +50,6 @@ cat lab.schema
 
 * Go to **Dataproc** > Clusters > Create Cluster
 
-![](https://github.com/DSC-IIIT-Kalyani/qwiklabs_challenges/raw/master/screenshots/cluster.png)
 
 * Select the Created Cluster > Go to **VM Instances** > **SSH** into cluster
 
@@ -57,8 +62,6 @@ hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 * Exit the **SSH**
 
 * Submit Job > Configure as given:
-
-![](https://github.com/DSC-IIIT-Kalyani/qwiklabs_challenges/raw/master/screenshots/job_3.png)
 
 * Click on **SUBMIT**
 
