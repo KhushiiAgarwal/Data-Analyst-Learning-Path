@@ -75,8 +75,7 @@ hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 
 ### Task 4: AI
 
-**<u>PART 1</u>**
-
+**Step 1:** 
 Use the following commands:
 
 ```yaml
@@ -98,7 +97,7 @@ gcloud auth login
 gsutil cp result.json gs://YOUR_PROJECT-marking/task4-cnl.result
 ```
 
-**<u>PART 2</u>**
+**Step 2**
 
 * Create an API Key by going to IAM > Credentials, and export it as `API_KEY` variable in the Cloud Shell. 
 
@@ -129,7 +128,7 @@ curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json 
 gsutil cp result.json gs://YOUR_PROJECT-marking/task4-gcs.result
 ```
 
-**<u>PART 3</u>**
+**Step 3**
 
 * Run the following:
 
