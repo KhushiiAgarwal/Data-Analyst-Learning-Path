@@ -1,7 +1,7 @@
 # Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab 
-# https://www.qwiklabs.com/focuses/11044?parent=catalog
 
 # Task 1: Run a simple Dataflow job
+.
     1.1 Create bigquery dataset
         - Navigation menu > BigQuery > Click your project >
         - Click CREATE DATASET (Dataset ID: lab, leave all default) > Create dataset
@@ -36,6 +36,7 @@
           (Continue to the Task 2 while waiting the Run Job done)
 
 # Task 2: Run a simple Dataproc job
+.
     2.1 Create Dataproc Cluster
         - Navigation Menu > Dataproc > Cluster > Create Cluster 
         - *in create cluster section*
@@ -55,6 +56,7 @@
             - Arguments 	        /data.txt
             
 # Task 3: Run a simple Dataprep job
+.
     3.1 Import csv to dataprep
         - Navigation menu > Dataprep > Import Data > Choose GCS
         - *in import data section*
@@ -87,11 +89,12 @@
         - Run Job
 
 # Task 4: AI
+.
     - Navigation menu> APIs & Services > Credentials
         - Click CREATE CREDENTIALS > Choose API > Copy your API Key
         - Click RESTRICT KEY > SAVE > wait 5 min
         - Open cloud shell
-    
+    .
     4.1 Use Google Cloud Speech API to analyze the audio file
         - *in cloud shell*
             - *note*: FOLLOW THIS LAB -> https://www.qwiklabs.com/focuses/588?parent=catalog
@@ -109,16 +112,16 @@
                 }
             - curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
             - gsutil cp result.json gs://<your_project_id>-marking/task4-gcs.result
-
+.
     -- Alternate: --
 
-    gcloud iam service-accounts create my-natlang-sa \
+gcloud iam service-accounts create my-natlang-sa \
       --display-name "my natural language service account"
 
-    gcloud iam service-accounts keys create ~/key.json \
+   gcloud iam service-accounts keys create ~/key.json \
       --iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
 
-    export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
+   export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
     gcloud auth activate-service-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
     gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > result.json
     gcloud auth login (Copy the token from the link provided)
